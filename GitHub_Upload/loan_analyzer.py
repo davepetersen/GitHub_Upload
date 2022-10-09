@@ -1,6 +1,7 @@
 # coding: utf-8
 import csv
 from pathlib import Path
+from webbrowser import get
 
 """Part 1: Automate the Calculations.
 
@@ -17,17 +18,20 @@ loan_costs = [500, 600, 200, 1000, 450]
 # How many loans are in the list?
 # @TODO: Use the `len` function to calculate the total number of loans in the list.
 # Print the number of loans from the list
-# YOUR CODE HERE!
+get_loan_list_length = len(loan_costs)
+print("The number of loans is ", get_loan_list_length)
 
 # What is the total of all loans?
 # @TODO: Use the `sum` function to calculate the total of all loans in the list.
 # Print the total value of the loans
-# YOUR CODE HERE!
+get_loan_list_sum = sum(loan_costs)
+print("The total of all loans is", get_loan_list_sum)
 
 # What is the average loan amount from the list?
 # @TODO: Using the sum of all loans and the total number of loans, calculate the average loan price.
 # Print the average loan amount
-# YOUR CODE HERE!
+get_loan_list_average = (get_loan_list_sum / get_loan_list_length)
+print("The average loan amount is", get_loan_list_average)
 
 """Part 2: Analyze Loan Data.
 
@@ -62,7 +66,11 @@ loan = {
 
 # @TODO: Use get() on the dictionary of additional information to extract the Future Value and Remaining Months on the loan.
 # Print each variable.
-# YOUR CODE HERE!
+future_value = loan.get('future_value')
+print("The future value is", future_value)
+
+remaining_months = loan.get('remaining_months')
+print("The remaining months is", remaining_months)
 
 
 # @TODO: Use the formula for Present Value to calculate a "fair value" of the loan.
@@ -70,7 +78,8 @@ loan = {
 #   You'll want to use the **monthly** version of the present value formula.
 #   HINT: Present Value = Future Value / (1 + Discount_Rate/12) ** remaining_months
 
-# YOUR CODE HERE!
+fair_value = future_value / (1 + .2/12) ** remaining_months
+print(fair_value)
 
 # If Present Value represents what the loan is really worth, does it make sense to buy the loan at its cost?
 # @TODO: Write a conditional statement (an if-else statement) to decide if the present value represents the loan's fair value.

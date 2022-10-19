@@ -115,7 +115,7 @@ new_loan = {
 annual_discount_rate = .20
 
 def calculate_present_value(future_value, remaining_months, annual_discount_rate):
-    present_value = future_value * (1+ (annual_discount_rate / 12)) ** remaining_months
+    present_value = future_value / (1+ (annual_discount_rate / 12)) ** remaining_months
     print("pv", present_value)
     return present_value
 
